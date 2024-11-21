@@ -2,3 +2,4 @@
 /Firefly*.exe
 /flatpak/.flatpak-builder/
 /flatpak/repo
+/flatpak/FireflyLuciferinLinux.deb
