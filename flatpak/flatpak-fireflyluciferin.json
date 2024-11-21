@@ -1,15 +1,18 @@
 {
   "id": "org.dpsoftware.fireflyluciferin",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "46",
+  "runtime-version": "47",
   "sdk": "org.gnome.Sdk",
   "command": "/app/fireflyluciferin/bin/FireflyLuciferin",
   "finish-args": [
     "--share=network",
+    "--share=ipc",
+    "--socket=pulseaudio",
     "--socket=x11",
     "--socket=wayland",
     "--device=all",
     "--filesystem=home",
+    "--env=LD_LIBRARY_PATH=/app/lib",
     "--env=FLATPAK_ENV=1"
   ],
   "modules": [
@@ -22,16 +25,16 @@
         "tar xvf data.tar.zst",
         "mkdir -p /app/fireflyluciferin",
         "cp -r opt/fireflyluciferin/* /app/fireflyluciferin",
-	"install -Dm644 ff.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop",
-	"install -Dm644 org.dpsoftware.fireflyluciferin.png /app/share/icons/highcolor/256x256/apps/${FLATPAK_ID}.png",
-	"ls -la"
+        "install -Dm644 ff.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop",
+        "install -Dm644 org.dpsoftware.fireflyluciferin.png /app/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.png",
+        "ls -la"
       ],
       "sources": [
         {
           "type": "file",
           "path": "FireflyLuciferinLinux.deb"
         },
-	{
+        {
           "type": "file",
           "path": "ff.desktop"
         },
@@ -42,8 +45,24 @@
       ]
     },
     {
-      "name": "libayatana-appindicator-gtk3"
+      "name": "libnotify",
+      "buildsystem": "meson",
+      "config-opts": [
+        "-Dman=false",
+        "-Dgtk_doc=false"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.3.tar.xz",
+          "sha256": "ee8f3ef946156ad3406fdf45feedbdcd932dbd211ab4f16f75eba4f36fb2f6c0",
+          "x-checker-data": {
+            "type": "anitya",
+            "project-id": 13149,
+            "url-template": "https://download.gnome.org/sources/libnotify/$major.$minor/libnotify-$version.tar.xz"
+          }
+        }
+      ]
     }
   ]
-
 }
