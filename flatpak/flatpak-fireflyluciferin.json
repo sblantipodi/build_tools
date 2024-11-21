@@ -1,0 +1,49 @@
+{
+  "id": "org.dpsoftware.fireflyluciferin",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "46",
+  "sdk": "org.gnome.Sdk",
+  "command": "/app/fireflyluciferin/bin/FireflyLuciferin",
+  "finish-args": [
+    "--share=network",
+    "--socket=x11",
+    "--socket=wayland",
+    "--device=all",
+    "--filesystem=home",
+    "--env=FLATPAK_ENV=1"
+  ],
+  "modules": [
+    "shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json",
+    {
+      "name": "fireflyluciferin",
+      "buildsystem": "simple",
+      "build-commands": [
+        "ar x FireflyLuciferinLinux.deb",
+        "tar xvf data.tar.zst",
+        "mkdir -p /app/fireflyluciferin",
+        "cp -r opt/fireflyluciferin/* /app/fireflyluciferin",
+	"install -Dm644 ff.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop",
+	"install -Dm644 org.dpsoftware.fireflyluciferin.png /app/share/icons/highcolor/256x256/apps/${FLATPAK_ID}.png",
+	"ls -la"
+      ],
+      "sources": [
+        {
+          "type": "file",
+          "path": "FireflyLuciferinLinux.deb"
+        },
+	{
+          "type": "file",
+          "path": "ff.desktop"
+        },
+        {
+          "type": "file",
+          "path": "org.dpsoftware.fireflyluciferin.png"
+        }
+      ]
+    },
+    {
+      "name": "libayatana-appindicator-gtk3"
+    }
+  ]
+
+}
