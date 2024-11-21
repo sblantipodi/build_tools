@@ -1,2 +1,4 @@
 /.idea/
 /Firefly*.exe
+/flatpak/.flatpak-builder/
+/flatpak/repo
