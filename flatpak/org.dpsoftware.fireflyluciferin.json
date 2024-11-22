@@ -25,8 +25,9 @@
         "tar xvf data.tar.zst",
         "mkdir -p /app/fireflyluciferin",
         "cp -r opt/fireflyluciferin/* /app/fireflyluciferin",
-        "install -Dm644 ff.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop",
+        "install -Dm644 org.dpsoftware.fireflyluciferin.desktop /app/share/applications/${FLATPAK_ID}.desktop",
         "install -Dm644 org.dpsoftware.fireflyluciferin.png /app/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.png",
+        "install -Dm644 org.dpsoftware.fireflyluciferin.appdata.xml /app/share/share/appdata/${FLATPAK_ID}.appdata.xml",
         "ls -la"
       ],
       "sources": [
@@ -36,7 +37,11 @@
         },
         {
           "type": "file",
-          "path": "ff.desktop"
+          "path": "org.dpsoftware.fireflyluciferin.desktop"
+        },
+        {
+          "type": "file",
+          "path": "org.dpsoftware.fireflyluciferin.appdata.xml"
         },
         {
           "type": "file",
