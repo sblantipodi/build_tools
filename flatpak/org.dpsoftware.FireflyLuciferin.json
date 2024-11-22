@@ -32,6 +32,9 @@
         "install -Dm644 org.dpsoftware.FireflyLuciferin.appdata.xml /app/share/share/appdata/${FLATPAK_ID}.appdata.xml",
         "ls -la"
       ],
+      "cleanup": [
+        "/opt"
+      ],
       "sources": [
         {
           "type": "file",
