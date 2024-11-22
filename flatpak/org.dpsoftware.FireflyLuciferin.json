@@ -13,14 +13,9 @@
     "--device=all",
     "--filesystem=home",
     "--env=LD_LIBRARY_PATH=/app/lib",
+    "--env=GTK_THEME=Yaru:dark",
     "--env=FLATPAK_ENV=1"
   ],
-  "add-extensions": {
-    "org.freedesktop.Sdk.Extension.llvm14": {
-      "no-autodownload": "false",
-      "version": "22.08"
-    }
-  },
   "modules": [
     "shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json",
     {
