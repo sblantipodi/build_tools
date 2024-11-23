@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
     <id>org.dpsoftware.FireflyLuciferin</id>
-    <provides><id>org.dpsoftware.FireflyLuciferin.desktop</id></provides>
     <launchable type="desktop-id">org.dpsoftware.FireflyLuciferin.desktop</launchable>
     <name>Firefly Luciferin</name>
     <developer_name>Firefly Luciferin</developer_name>
     <summary>Ambilight clone</summary>
-    <metadata_license>CC0-1.0</metadata_license>
+    <metadata_license>CC-BY-SA-4.0</metadata_license>
     <project_license>LicenseRef-proprietary=https://github.com/sblantipodi/firefly_luciferin?tab=GPL-3.0-1-ov-file</project_license>
     <url type="homepage">https://github.com/sblantipodi/firefly_luciferin</url>
     <url type="help">https://github.com/sblantipodi/firefly_luciferin/wiki</url>
@@ -62,9 +61,6 @@
             <image type="source">https://raw.githubusercontent.com/sblantipodi/firefly_luciferin/master/data/img/testimage.jpg</image>
         </screenshot>
     </screenshots>
-    <kudos>
-        <kudo>HiDpiIcon</kudo>
-    </kudos>
     <releases>
         <release version="1.2.48.405.gf2c48e6f" date="2024-11-06">
             <description></description>
