@@ -42,8 +42,8 @@
         "ar x FireflyLuciferinLinux.deb",
         "tar xvf data.tar.zst",
         "mkdir -p /app/fireflyluciferin",
-        "echo -e '\nflatpak.env=true' >> opt/fireflyluciferin/lib/app/classes/project.properties",
         "cp -r opt/fireflyluciferin/* /app/",
+        "cp -r opt/fireflyluciferin/lib/app/classes/org/dpsoftware/gui/img /app/",
         "install -Dm644 ./opt/fireflyluciferin/lib/app/classes/build_assets/org.dpsoftware.FireflyLuciferin.desktop /app/share/applications/${FLATPAK_ID}.desktop",
         "install -Dm644 ./opt/fireflyluciferin/lib/app/classes/build_assets/org.dpsoftware.FireflyLuciferin.appdata.xml /app/share/appdata/${FLATPAK_ID}.appdata.xml",
         "install -Dm644 ./opt/fireflyluciferin/lib/app/classes/build_assets/org.dpsoftware.FireflyLuciferin.svg /app/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg"
@@ -51,8 +51,8 @@
       "sources": [
         {
           "type" : "file",
-          "url" : "https://dpsoftware.org/2.17.9/FireflyLuciferinLinux.deb",
-          "sha256" : "d4f2f23c1d2d04ba33781372f48ec3edb5e6a82dd893c8e4bea9759cb6807747"
+          "url" : "https://dpsoftware.org/2.17.10/FireflyLuciferinLinux.deb",
+          "sha256" : "30b98b126bc780ad614b4b181db7dd53be6ab6c085c44b945cb0794f5acf519c"
         }
       ]
     }
