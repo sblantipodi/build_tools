@@ -1,0 +1,3 @@
+[submodule "flatpak/org.dpsoftware.FireflyLuciferin"]
+	path = flatpak/org.dpsoftware.FireflyLuciferin
+	url = git@github.com:flathub/org.dpsoftware.FireflyLuciferin.git
