@@ -25,5 +25,6 @@ jpackage -i target --main-class org.dpsoftware.JavaFXStarter \
 --enable-native-access=ALL-UNNAMED";
 cd build_tools/flatpak;
 cp ../../*.deb ./FireflyLuciferinLinux.deb;
+rm -rf ../../firef*.deb;
 flatpak-builder --force-clean --user --install-deps-from=flathub --repo=repo --install builddir org.dpsoftware.FireflyLuciferin.json;
 rm -rf FireflyLuciferinLinux.deb;
