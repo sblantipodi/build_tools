@@ -8,6 +8,22 @@
 #      "path" : "FireflyLuciferinLinux.deb"
 #    }
 #]
-cp ../../*.deb org.dpsoftware.FireflyLuciferin/FireflyLuciferinLinux.deb;
-cd org.dpsoftware.FireflyLuciferin;
+read -p "Insert release version: " app_version
+cd ..;
+cd ..;
+mvn clean;
+mvn -B package;
+echo "";
+echo "Running jpackage...";
+jpackage -i target --main-class org.dpsoftware.JavaFXStarter \
+--main-jar FireflyLuciferin-jar-with-dependencies.jar \
+--icon data/img/luciferin_logo.png --linux-shortcut \
+--copyright "Davide Perini" --name FireflyLuciferin \
+--vendor DPsoftware --app-version "$app_version" \
+--java-options "-XX:+UseZGC -XX:+UseStringDeduplication -Xms64m -Xmx1024m \
+--add-modules=jdk.incubator.vector --enable-native-access=org.dpsoftware \
+--enable-native-access=ALL-UNNAMED";
+cd build_tools/flatpak;
+cp ../../*.deb ./FireflyLuciferinLinux.deb;
 flatpak-builder --force-clean --user --install-deps-from=flathub --repo=repo --install builddir org.dpsoftware.FireflyLuciferin.json;
+rm -rf FireflyLuciferinLinux.deb;
