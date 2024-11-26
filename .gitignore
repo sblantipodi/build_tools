@@ -1,6 +1,3 @@
 /.idea/
 /Firefly*.exe
-/flatpak/.flatpak-builder/
-/flatpak/repo
-/flatpak/FireflyLuciferinLinux.deb
-/flatpak/shared-modules/
+
