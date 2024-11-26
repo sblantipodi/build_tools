@@ -1,0 +1,60 @@
+{
+  "id": "org.dpsoftware.FireflyLuciferin",
+  "runtime": "org.freedesktop.Platform",
+  "runtime-version": "24.08",
+  "sdk": "org.freedesktop.Sdk",
+  "command": "FireflyLuciferin",
+  "finish-args": [
+    "--share=network",
+    "--share=ipc",
+    "--socket=pulseaudio",
+    "--socket=x11",
+    "--device=all",
+    "--filesystem=xdg-documents",
+    "--filesystem=xdg-download"
+  ],
+  "modules": [
+    "shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json",
+    {
+      "name": "cuda-toolkit",
+      "only-arches": [
+        "x86_64"
+      ],
+      "buildsystem": "simple",
+      "build-commands": [
+        "mv lib/libnvrtc*.so* /app/lib/"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "only-arches": [
+            "x86_64"
+          ],
+          "url": "https://developer.download.nvidia.com/compute/cuda/redist/cuda_nvrtc/linux-x86_64/cuda_nvrtc-linux-x86_64-12.6.85-archive.tar.xz",
+          "sha256": "a4289ba86f0deeccf4e1d94c58559eae4c8184fcb6eaade8fcab45584e6cf402"
+        }
+      ]
+    },
+    {
+      "name": "fireflyluciferin",
+      "buildsystem": "simple",
+      "build-commands": [
+        "ar x FireflyLuciferinLinux.deb",
+        "tar xvf data.tar.zst",
+        "mkdir -p /app/fireflyluciferin",
+        "echo -e '\nflatpak.env=true' >> opt/fireflyluciferin/lib/app/classes/project.properties",
+        "cp -r opt/fireflyluciferin/* /app/",
+        "install -Dm644 ./opt/fireflyluciferin/lib/app/classes/build_assets/org.dpsoftware.FireflyLuciferin.desktop /app/share/applications/${FLATPAK_ID}.desktop",
+        "install -Dm644 ./opt/fireflyluciferin/lib/app/classes/build_assets/org.dpsoftware.FireflyLuciferin.appdata.xml /app/share/appdata/${FLATPAK_ID}.appdata.xml",
+        "install -Dm644 ./opt/fireflyluciferin/lib/app/classes/build_assets/org.dpsoftware.FireflyLuciferin.svg /app/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg"
+      ],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dpsoftware.org/2.17.9/FireflyLuciferinLinux.deb",
+          "sha256": "d4f2f23c1d2d04ba33781372f48ec3edb5e6a82dd893c8e4bea9759cb6807747"
+        }
+      ]
+    }
+  ]
+}
