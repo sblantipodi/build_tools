@@ -1,19 +1,20 @@
 #!/bin/sh
 
-# Note: to use the build.sh with a local file you need to change json file to point to a type file with a path and not a url,
-# example:
-#"sources": [
-#    {
-#      "type" : "file",
-#      "path" : "FireflyLuciferinLinux.deb"
-#    }
-#]
-read -p "Insert release version: " app_version
+# Copyright © 2020 - 2024  Davide Perini  (https://github.com/sblantipodi)
+# If you pass an argument version it uses it without prompting for it. (ex ./built.sh 2.17.10)
+
+if [ -z "$1" ]; then
+  read -p "Inserisci la versione dell'app: " app_version
+else
+  app_version=$1
+fi
+
 cd ..;
 cd ..;
 mvn clean;
 mvn -B package;
 echo "";
+
 echo "Running jpackage...";
 jpackage -i target --main-class org.dpsoftware.JavaFXStarter \
 --main-jar FireflyLuciferin-jar-with-dependencies.jar \
@@ -23,8 +24,13 @@ jpackage -i target --main-class org.dpsoftware.JavaFXStarter \
 --java-options "-XX:+UseZGC -XX:+UseStringDeduplication -Xms64m -Xmx1024m \
 --add-modules=jdk.incubator.vector --enable-native-access=org.dpsoftware \
 --enable-native-access=ALL-UNNAMED";
-cd build_tools/flatpak;
+
+cd build_tools/flatpak || exit;
 cp ../../*.deb ./FireflyLuciferinLinux.deb;
 rm -rf ../../firef*.deb;
+unlink org.dpsoftware.FireflyLuciferin.json;
+ln -s org.dpsoftware.FireflyLuciferin.local.json org.dpsoftware.FireflyLuciferin.json;
 flatpak-builder --force-clean --user --install-deps-from=flathub --repo=repo --install builddir org.dpsoftware.FireflyLuciferin.json;
+unlink org.dpsoftware.FireflyLuciferin.json;
+ln -s org.dpsoftware.FireflyLuciferin.remote.json org.dpsoftware.FireflyLuciferin.json;
 rm -rf FireflyLuciferinLinux.deb;
