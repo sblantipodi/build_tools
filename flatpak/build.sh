@@ -10,4 +10,5 @@
 #]
 cp ../../*.deb org.dpsoftware.FireflyLuciferin/FireflyLuciferinLinux.deb;
 cd org.dpsoftware.FireflyLuciferin;
+git clone https://github.com/flathub/shared-modules.git;
 flatpak-builder --force-clean --user --install-deps-from=flathub --repo=repo --install builddir org.dpsoftware.FireflyLuciferin.json;
