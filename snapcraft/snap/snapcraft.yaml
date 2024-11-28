@@ -1,0 +1,98 @@
+name: fireflyluciferin
+base: core24
+version: '2.17.12'
+summary: my summary
+description: |
+  mydescription
+
+grade: stable
+confinement: devmode
+icon: meta/gui/fireflyluciferin.png
+
+apps:
+  fireflyluciferin:
+    command: bin/FireflyLuciferin
+    desktop: usr/share/applications/fireflyluciferin.desktop
+    plugs:
+      - network
+      - home
+      - network-bind
+      - pulseaudio
+      - x11
+      - removable-media
+      - desktop
+      - desktop-legacy
+      - audio-playback
+      - audio-record
+      - camera
+      - mount-observe
+      - network-observe
+      - process-control
+      - screen-inhibit-control
+      - system-observe
+      - gsettings
+    environment:
+      TMPDIR: $XDG_RUNTIME_DIR
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+
+parts:
+  fireflyluciferin:
+    plugin: nil
+    source: .
+    source-type: local
+    build-packages:
+      - wget
+      - libgtk2.0-dev
+      - libzstd1
+      - zstd
+      - tar
+    stage-packages:
+      - libx11-6
+      - libx11-xcb1
+      - libxxf86vm-dev
+      - libgl1
+      - xdg-user-dirs
+      - libgtk-3-0
+      - libxtst6
+      - libglib2.0-dev
+      - gstreamer1.0-tools
+      - gstreamer1.0-alsa
+      - gstreamer1.0-gl
+      - gstreamer1.0-gtk3
+      - gstreamer1.0-qt5
+      - gstreamer1.0-x
+      - gstreamer1.0-plugins-base
+      - gstreamer1.0-plugins-good
+      - gstreamer1.0-plugins-bad
+      - gstreamer1.0-plugins-ugly
+      - gstreamer1.0-pulseaudio
+      - gstreamer1.0-libav
+      - libgstreamer1.0-dev
+      - libgstreamer-plugins-base1.0-dev
+      - libgstreamer-plugins-bad1.0-dev
+      - libpulse0
+      - pulseaudio
+      - libpulse-dev
+      - libayatana-appindicator3-1
+      - libayatana-appindicator3-dev
+      - libayatana-indicator3-7
+      - libayatana-ido3-0.4-0
+      - libnotify-dev
+      - libnotify4
+      - libnotify-bin
+      - libatlas3-base
+      - libblas3
+    override-build: |
+      snapcraftctl build
+      wget -nc https://dpsoftware.org/2.17.12/FireflyLuciferinLinux.deb
+      ar x FireflyLuciferinLinux.deb
+      tar xvf data.tar.zst
+      ls -la
+      ls -la opt/fireflyluciferin
+      mkdir -p $SNAPCRAFT_PART_INSTALL/bin
+      mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/applications
+      mkdir -p $SNAPCRAFT_PART_INSTALL/meta/gui      
+      cp -R opt/fireflyluciferin/* $SNAPCRAFT_PART_INSTALL
+      cp opt/fireflyluciferin/lib/app/classes/build_assets/org.dpsoftware.FireflyLuciferin.snap.desktop $SNAPCRAFT_PART_INSTALL/usr/share/applications/fireflyluciferin.desktop
+      cp opt/fireflyluciferin/lib/app/classes/org/dpsoftware/gui/img/luciferin_logo.png $SNAPCRAFT_PART_INSTALL/meta/gui/fireflyluciferin.png

@@ -4,7 +4,7 @@
 # If you pass an argument version it uses it without prompting for it. (ex ./built.sh 2.17.10)
 
 if [ -z "$1" ]; then
-  read -p "Inserisci la versione dell'app: " app_version
+  read -p "Please insert app version (ex: 2.17.10): " app_version
 else
   app_version=$1
 fi
