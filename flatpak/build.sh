@@ -2,6 +2,11 @@
 
 # Copyright © 2020 - 2024  Davide Perini  (https://github.com/sblantipodi)
 # If you pass an argument version it uses it without prompting for it. (ex ./built.sh 2.17.10)
+# This install a new build locally.
+# flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+# flatpak run org.dpsoftware.FireflyLuciferin
+# flatpak remove org.dpsoftware.FireflyLuciferin
+# other manifest: https://github.com/search?q=org%3Aflathub+gstreamer&type=code
 
 if [ -z "$1" ]; then
   read -p "Please insert app version (ex: 2.17.10): " app_version
