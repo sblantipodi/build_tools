@@ -39,3 +39,4 @@ flatpak-builder --force-clean --user --install-deps-from=flathub --repo=repo --i
 mv org.dpsoftware.FireflyLuciferin.json org.dpsoftware.FireflyLuciferin.local.json;
 mv org.dpsoftware.FireflyLuciferin.remote.json org.dpsoftware.FireflyLuciferin.json;
 rm -rf FireflyLuciferinLinux.deb;
+flatpak run org.dpsoftware.FireflyLuciferin
