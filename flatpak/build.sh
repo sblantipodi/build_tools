@@ -28,9 +28,9 @@ jpackage -i target --main-class org.dpsoftware.JavaFXStarter \
 cd build_tools/flatpak || exit;
 cp ../../*.deb ./FireflyLuciferinLinux.deb;
 rm -rf ../../firef*.deb;
-unlink org.dpsoftware.FireflyLuciferin.json;
-ln -s org.dpsoftware.FireflyLuciferin.local.json org.dpsoftware.FireflyLuciferin.json;
+mv org.dpsoftware.FireflyLuciferin.json org.dpsoftware.FireflyLuciferin.remote.json;
+mv org.dpsoftware.FireflyLuciferin.local.json org.dpsoftware.FireflyLuciferin.json;
 flatpak-builder --force-clean --user --install-deps-from=flathub --repo=repo --install builddir org.dpsoftware.FireflyLuciferin.json;
-unlink org.dpsoftware.FireflyLuciferin.json;
-ln -s org.dpsoftware.FireflyLuciferin.remote.json org.dpsoftware.FireflyLuciferin.json;
+mv org.dpsoftware.FireflyLuciferin.json org.dpsoftware.FireflyLuciferin.local.json;
+mv org.dpsoftware.FireflyLuciferin.remote.json org.dpsoftware.FireflyLuciferin.json;
 rm -rf FireflyLuciferinLinux.deb;
