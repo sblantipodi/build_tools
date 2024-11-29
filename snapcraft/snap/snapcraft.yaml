@@ -23,26 +23,19 @@ confinement: strict
 
 apps:
   fireflyluciferin:
-    command: bin/desktop-launch FireflyLuciferin
+    command: bin/FireflyLuciferin
     desktop: usr/share/applications/fireflyluciferin.desktop
     extensions: [ gnome ]
     plugs:
       - network
       - home
-      - personal-files
       - pulseaudio
       - alsa
       - x11
       - desktop
-      - audio
       - desktop-legacy
       - audio-playback
       - audio-record
-      - network-observe
-      - process-control
-      - gsettings
-      - dbus
-      - jack1
     environment:
       TMPDIR: $XDG_RUNTIME_DIR
       DISABLE_WAYLAND: 1
@@ -85,9 +78,6 @@ parts:
       - libgstreamer1.0-dev
       - libgstreamer-plugins-base1.0-dev
       - libgstreamer-plugins-bad1.0-dev
-      - libpulse0
-      - pulseaudio
-      - libpulse-dev
       - libayatana-appindicator3-1
       - libayatana-appindicator3-dev
       - libayatana-indicator3-7
@@ -96,9 +86,14 @@ parts:
       - libnotify4
       - libnotify-bin
       - libatlas3-base
-      - libblas3,
-      - libjack0,
-      - libjack-dev
+      - libblas3
+      - libpulse0
+      - pulseaudio
+      - libpulse-dev
+      - libasound2
+      - libportaudio2
+      - libasound2-plugins
+      - alsa-utils
 
     override-build: |
       snapcraftctl build

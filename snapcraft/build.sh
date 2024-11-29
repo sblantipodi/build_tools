@@ -2,6 +2,12 @@
 
 # Copyright © 2020 - 2024  Davide Perini  (https://github.com/sblantipodi)
 # If you pass an argument version it uses it without prompting for it. (ex ./built.sh 2.17.10)
+# Firewall rules for snapcraft
+# sudo ufw allow in on lxdbr0
+# sudo ufw route allow in on lxdbr0
+# sudo ufw route allow out on lxdbr0
+# sudo usermod -a -G lxd $USER
+# snap run --shell fireflyluciferin
 # This install a new build locally.
 # other manifest: https://github.com/search?q=path%3Asnapcraft.yaml+%22icon%22&type=code
 
@@ -42,3 +48,4 @@ sudo snap install fireflyluciferin_${app_version}_amd64.snap --dangerous --devmo
 snap run fireflyluciferin;
 sed -i "s/$app_version/VERSION_PLACEHOLDER/g" snap/snapcraft.yaml;
 rm -rf FireflyLuciferinLinux.deb;
+rm -rf *.snap;
