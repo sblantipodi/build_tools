@@ -87,9 +87,11 @@ parts:
       - libatlas3-base
       - libblas3
       - libpulse0
-      - pulseaudio
       - pulseaudio-utils
       - libpulse-dev
+      - libasound2
+      - libasound2-plugins
+      - alsa-utils
 
     override-build: |
       snapcraftctl build
