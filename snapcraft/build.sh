@@ -48,4 +48,4 @@ sudo snap install fireflyluciferin_${app_version}_amd64.snap --dangerous --devmo
 snap run fireflyluciferin;
 sed -i "s/$app_version/VERSION_PLACEHOLDER/g" snap/snapcraft.yaml;
 rm -rf FireflyLuciferinLinux.deb;
-rm -rf *.snap;
+#rm -rf *.snap;

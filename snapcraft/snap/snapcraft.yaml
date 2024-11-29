@@ -30,7 +30,6 @@ apps:
       - network
       - home
       - pulseaudio
-      - alsa
       - x11
       - desktop
       - desktop-legacy
@@ -89,11 +88,8 @@ parts:
       - libblas3
       - libpulse0
       - pulseaudio
+      - pulseaudio-utils
       - libpulse-dev
-      - libasound2
-      - libportaudio2
-      - libasound2-plugins
-      - alsa-utils
 
     override-build: |
       snapcraftctl build
