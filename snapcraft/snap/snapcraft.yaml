@@ -19,46 +19,37 @@ icon: fireflyluciferin.png
 license: GPL-3.0
 
 grade: stable
-confinement: devmode
+confinement: strict
 
 apps:
   fireflyluciferin:
-    command: bin/FireflyLuciferin
+    command: bin/desktop-launch FireflyLuciferin
     desktop: usr/share/applications/fireflyluciferin.desktop
     extensions: [ gnome ]
     plugs:
       - network
       - home
-      - network-bind
+      - personal-files
       - pulseaudio
+      - alsa
       - x11
-      - removable-media
       - desktop
+      - audio
       - desktop-legacy
       - audio-playback
       - audio-record
-      - camera
-      - mount-observe
       - network-observe
       - process-control
-      - screen-inhibit-control
-      - system-observe
       - gsettings
+      - dbus
+      - jack1
     environment:
       TMPDIR: $XDG_RUNTIME_DIR
       DISABLE_WAYLAND: 1
       NOTIFY_IGNORE_PORTAL: 1
 
 parts:
-#    plugin: dump
-#    source: ./misc
-#    source-type: local
-#    organize:
-#      'services/*.service': usr/lib/systemd/system/
-#      'fonts/*': usr/share/fonts/
-#    stage:
-#      - usr/
-  v2raya:
+  compiledpackage:
     source-type: deb
     plugin: dump
     source: FireflyLuciferinLinux.deb
@@ -74,19 +65,6 @@ parts:
       - zstd
       - tar
     stage-packages:
-      - libx11-6
-      - libx11-xcb1
-      - libxxf86vm-dev
-
-      - libxcb1-dev
-      - libxcb-render0-dev
-      - libxcb-shape0-dev
-      - libxcb-xfixes0-dev
-
-      - libxext6
-      - libxrender1
-
-      - libgl1
       - xdg-user-dirs
       - xdg-utils
       - libgtk-3-0
@@ -118,7 +96,9 @@ parts:
       - libnotify4
       - libnotify-bin
       - libatlas3-base
-      - libblas3
+      - libblas3,
+      - libjack0,
+      - libjack-dev
 
     override-build: |
       snapcraftctl build
