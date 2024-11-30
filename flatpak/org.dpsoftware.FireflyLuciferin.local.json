@@ -11,7 +11,6 @@
     "--socket=x11",
     "--device=all",
     "--filesystem=xdg-documents",
-    "--filesystem=xdg-download",
     "--talk-name=org.kde.StatusNotifierWatcher"
   ],
   "modules": [
