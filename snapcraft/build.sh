@@ -24,6 +24,7 @@ cd ..;
 cd ..;
 mvn clean;
 mvn -B package;
+rm -rf target/fireflyluciferin*.jar;
 echo "";
 
 echo "Running jpackage...";
@@ -42,6 +43,7 @@ rm -rf ../../firef*.deb;
 
 snapcraft clean;
 sudo snap remove fireflyluciferin;
+rm -rf *.snap;
 
 snapcraft --verbosity=debug;
 sudo snap install fireflyluciferin_${app_version}_amd64.snap --dangerous;
@@ -49,4 +51,3 @@ rm -rf /home/sblantipodi/.openjfx;
 snap run fireflyluciferin;
 sed -i "s/$app_version/VERSION_PLACEHOLDER/g" snap/snapcraft.yaml;
 rm -rf FireflyLuciferinLinux.deb;
-#rm -rf *.snap;
