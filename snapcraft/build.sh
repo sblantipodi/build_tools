@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Copyright © 2020 - 2024  Davide Perini  (https://github.com/sblantipodi)
 # If you pass an argument version it uses it without prompting for it. (ex ./built.sh 2.17.10)
@@ -8,6 +8,7 @@
 # sudo ufw route allow out on lxdbr0
 # sudo usermod -a -G lxd $USER
 # snap run --shell fireflyluciferin
+# sudo journalctl --output=short --follow --all | sudo snappy-debug
 # This install a new build locally.
 # other manifest: https://github.com/search?q=path%3Asnapcraft.yaml+%22icon%22&type=code
 
@@ -17,13 +18,15 @@ else
   app_version=$1
 fi
 
-sed -i "s/VERSION_PLACEHOLDER/$app_version/g" snap/snapcraft.yaml;
+read -p "Clean before the build? (y/N) " clean
 
+sed -i "s/VERSION_PLACEHOLDER/$app_version/g" snap/snapcraft.yaml;
 
 cd ..;
 cd ..;
 mvn clean;
 mvn -B package;
+rm -rf target/fireflyluciferin*.jar;
 rm -rf target/fireflyluciferin*.jar;
 echo "";
 
@@ -41,12 +44,14 @@ cd build_tools/snapcraft || exit;
 cp ../../*.deb ./FireflyLuciferinLinux.deb;
 rm -rf ../../firef*.deb;
 
-snapcraft clean;
+if [[ "$clean" =~ ^[Yy]$ ]]; then
+  snapcraft clean;
+fi
 sudo snap remove fireflyluciferin;
 rm -rf *.snap;
-
-snapcraft --verbosity=debug;
-sudo snap install fireflyluciferin_${app_version}_amd64.snap --dangerous;
+#snapcraft --verbosity=debug;
+snapcraft;
+sudo snap install fireflyluciferin_${app_version}_amd64.snap --dangerous --devmode;
 rm -rf /home/sblantipodi/.openjfx;
 snap run fireflyluciferin;
 sed -i "s/$app_version/VERSION_PLACEHOLDER/g" snap/snapcraft.yaml;
