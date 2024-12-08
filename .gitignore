@@ -1,2 +1,8 @@
 /.idea/
 /Firefly*.exe
+flatpak/.flatpak-builder
+flatpak/builddir
+flatpak/repo
+flatpak/FireflyLuciferinLinux.deb
+snapcraft/*.snap
+snapcraft/*.deb
