@@ -35,8 +35,7 @@ if [[ "$answerSnap" =~ ^[Yy]$ ]]; then
   file_to_edit="build_tools/snapcraft/snap/snapcraft.remote.yaml"
   sed -i "s/version: '[0-9]\+\.[0-9]\+\.[0-9]\+'/version: '$input_string'/" "$file_to_edit"
   sed -i "s#\(wget https://dpsoftware.org/\)[0-9]\+\.[0-9]\+\.[0-9]\+\(/FireflyLuciferinLinux.deb\)#\1$input_string\2#" "$file_to_edit"
-  git add -a;
-  git commit -m "snap release"
+  git commit -am "snap release"
   git push
   echo ""
   echo "Release completed on Snap Store.";
