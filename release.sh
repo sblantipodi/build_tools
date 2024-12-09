@@ -36,10 +36,8 @@ if [[ "$answerSnap" =~ ^[Yy]$ ]]; then
   sed -i "s/version: '[0-9]\+\.[0-9]\+\.[0-9]\+'/version: '$input_string'/" "$file_to_edit"
   sed -i "s#\(wget https://dpsoftware.org/\)[0-9]\+\.[0-9]\+\.[0-9]\+\(/FireflyLuciferinLinux.deb\)#\1$input_string\2#" "$file_to_edit"
   cp -R build_tools/snapcraft/snap/snapcraft.remote.yaml ../snapcraft.yaml
-  git add --all
-  git commit -am "snap release"
-  git push
-  git add --all
+  git add build_tools/snapcraft/snap/snapcraft.remote.yaml
+  git add build_tools
   git commit -am "snap release"
   git push
   echo ""
