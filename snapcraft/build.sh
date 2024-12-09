@@ -20,7 +20,7 @@ fi
 
 read -p "Clean before the build? (y/N) " clean
 
-sed -i "s/VERSION_PLACEHOLDER/$app_version/g" snap/snapcraft.yaml;
+sed -i "s/version: '[0-9]\+\.[0-9]\+\.[0-9]\+'/version: '$app_version'/" "$file_to_edit"
 
 cd ..;
 cd ..;
@@ -52,5 +52,4 @@ snapcraft;
 sudo snap install fireflyluciferin_${app_version}_amd64.snap --dangerous;
 rm -rf /home/sblantipodi/.openjfx;
 snap run fireflyluciferin;
-sed -i "s/$app_version/VERSION_PLACEHOLDER/g" snap/snapcraft.yaml;
 rm -rf FireflyLuciferinLinux.deb;
