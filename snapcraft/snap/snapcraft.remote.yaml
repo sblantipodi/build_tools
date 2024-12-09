@@ -79,7 +79,7 @@ parts:
       - libasound2-plugins
     override-build: |
       snapcraftctl build
-      wget https://dpsoftware.org/2.17.20/FireflyLuciferinLinux.deb
+      wget https://dpsoftware.org/2.17.21/FireflyLuciferinLinux.deb
       ls -la
       ar x FireflyLuciferinLinux.deb
       tar xvf data.tar.zst
