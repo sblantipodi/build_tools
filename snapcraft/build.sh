@@ -20,6 +20,7 @@ fi
 
 read -p "Clean before the build? (y/N) " clean
 
+file_to_edit="build_tools/snapcraft/snap/snapcraft.remote.yaml"
 sed -i "s/version: '[0-9]\+\.[0-9]\+\.[0-9]\+'/version: '$app_version'/" "$file_to_edit"
 
 cd ..;
