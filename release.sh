@@ -39,6 +39,9 @@ if [[ "$answerSnap" =~ ^[Yy]$ ]]; then
   git add --all
   git commit -am "snap release"
   git push
+  git add --all
+  git commit -am "snap release"
+  git push
   echo ""
   echo "Release completed on Snap Store.";
 else
