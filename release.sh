@@ -41,6 +41,7 @@ if [[ "$answerSnap" =~ ^[Yy]$ ]]; then
   cd ..
   git add build_tools
   cp -R build_tools/snapcraft/snap/snapcraft.remote.yaml snapcraft.yaml
+  git add snapcraft.yaml
   git commit -am "snap release"
   git push
   echo ""
