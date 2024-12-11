@@ -138,4 +138,5 @@ apps:
       NOTIFY_IGNORE_PORTAL: 1
       ALSA_CONFIG_PATH: $SNAP/etc/asound.conf
       _JAVA_OPTIONS: "-XX:+UseZGC -XX:+UseStringDeduplication -Xms64m -Xmx1024m --add-modules=jdk.incubator.vector --enable-native-access=org.dpsoftware --enable-native-access=ALL-UNNAMED"
-      PATH: $PWD/$SNAP/bin:$PATH
+      PATH: $PWD:$SNAP/bin:$PATH
+      APPDIR: $SNAP/lib/app

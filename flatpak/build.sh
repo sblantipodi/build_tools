@@ -19,6 +19,7 @@ cd ..;
 cd ..;
 mvn clean;
 mvn -B package;
+rm -rf target/fireflyluciferin*.jar
 echo "";
 
 echo "Running jpackage...";
