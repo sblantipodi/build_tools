@@ -53,7 +53,7 @@
       "sources": [
         {
           "type": "file",
-          "url": "https://dpsoftware.org/2.17.10/FireflyLuciferinLinux.deb",
+          "url": "https://github.com/sblantipodi/firefly_luciferin/releases/download/v2.17.10/FireflyLuciferinLinux.deb",
           "sha256": "b5bcb3c69806a9c8ea9174234436bb2c54b55efe816d4f2eb62f01e57112b2de"
         }
       ]

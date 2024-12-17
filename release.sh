@@ -34,7 +34,7 @@ if [[ "$answerSnap" =~ ^[Yy]$ ]]; then
   git pull;
   file_to_edit="build_tools/snapcraft/snap/snapcraft.remote.yaml"
   sed -i "s/version: '[0-9]\+\.[0-9]\+\.[0-9]\+'/version: '$input_string'/" "$file_to_edit"
-  sed -i "s#\(wget https://dpsoftware.org/\)[0-9]\+\.[0-9]\+\.[0-9]\+\(/FireflyLuciferinLinux.deb\)#\1$input_string\2#" "$file_to_edit"
+  sed -i "s#\(wget https://github.com/sblantipodi/firefly_luciferin/releases/download/v\)[0-9]\+\.[0-9]\+\.[0-9]\+\(/FireflyLuciferinLinux.deb\)#\1$input_string\2#" "$file_to_edit"
   cd build_tools
   git add snapcraft/snap/snapcraft.remote.yaml
   git commit -am "snap release"
@@ -62,14 +62,14 @@ cd ../tmp_remove || exit;
 read -p "Do you want to create a new release on Flathub based on the previous Git release? (y/N): " answerFlatpak
 
 if [[ "$answerFlatpak" =~ ^[Yy]$ ]]; then
-  wget https://dpsoftware.org/$input_string/FireflyLuciferinLinux.deb;
+  wget https://github.com/sblantipodi/firefly_luciferin/releases/download/v$input_string/FireflyLuciferinLinux.deb;
   sha256sum FireflyLuciferinLinux.deb;
   sha256_value=$(sha256sum FireflyLuciferinLinux.deb | awk '{ print $1 }');
   git clone git@github.com:flathub/org.dpsoftware.FireflyLuciferin.git;
   cd org.dpsoftware.FireflyLuciferin || exit;
   git checkout -b new-br
   cp ../../firefly_luciferin/build_tools/flatpak/org.dpsoftware.FireflyLuciferin.json .;
-  jq --arg sha256 "$sha256_value" --arg url "https://dpsoftware.org/$input_string/FireflyLuciferinLinux.deb" \ '(.modules[] | select(type == "object" and .name == "fireflyluciferin") | .sources[0]) |= (.sha256 = $sha256 | .url = $url)' org.dpsoftware.FireflyLuciferin.json > temp.json && mv temp.json org.dpsoftware.FireflyLuciferin.json;
+  jq --arg sha256 "$sha256_value" --arg url "https://github.com/sblantipodi/firefly_luciferin/releases/download/v$input_string/FireflyLuciferinLinux.deb" \ '(.modules[] | select(type == "object" and .name == "fireflyluciferin") | .sources[0]) |= (.sha256 = $sha256 | .url = $url)' org.dpsoftware.FireflyLuciferin.json > temp.json && mv temp.json org.dpsoftware.FireflyLuciferin.json;
   cat org.dpsoftware.FireflyLuciferin.json;
   git add org.dpsoftware.FireflyLuciferin.json
   git commit -m "bot, build"
