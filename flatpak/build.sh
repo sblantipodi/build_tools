@@ -31,13 +31,15 @@ jpackage -i target --main-class org.dpsoftware.JavaFXStarter \
 --java-options "-XX:+UseZGC -XX:+UseStringDeduplication -Xms64m -Xmx1024m \
 --add-modules=jdk.incubator.vector --enable-native-access=org.dpsoftware \
 --enable-native-access=ALL-UNNAMED";
+
+cd build_tools/flatpak || exit;
+cp ../../*.deb ./FireflyLuciferinLinux.deb;
+
 dpkg-deb -R FireflyLuciferinLinux.deb firetoedit
 sed -i 's/libasound2t64/libasound2/g' "firetoedit/DEBIAN/control"
 dpkg-deb -b firetoedit FireflyLuciferinLinux.deb
 rm rf firetoedit
 
-cd build_tools/flatpak || exit;
-cp ../../*.deb ./FireflyLuciferinLinux.deb;
 rm -rf ../../firef*.deb;
 mv org.dpsoftware.FireflyLuciferin.json org.dpsoftware.FireflyLuciferin.remote.json;
 mv org.dpsoftware.FireflyLuciferin.local.json org.dpsoftware.FireflyLuciferin.json;
