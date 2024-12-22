@@ -45,8 +45,10 @@ cp ../../*.deb ./FireflyLuciferinLinux.deb;
 
 dpkg-deb -R FireflyLuciferinLinux.deb firetoedit
 sed -i 's/libasound2t64/libasound2/g' "firetoedit/DEBIAN/control"
+sed -i 's/Unknown/Davide Perini/g' "firetoedit/DEBIAN/control"
 dpkg-deb -b firetoedit FireflyLuciferinLinux.deb
-rm rf firetoedit
+cat firetoedit/DEBIAN/control
+rm -rf firetoedit
 
 rm -rf ../../firef*.deb;
 
