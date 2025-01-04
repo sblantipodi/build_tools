@@ -6,7 +6,7 @@
 # flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 # flatpak run org.dpsoftware.FireflyLuciferin
 # flatpak remove org.dpsoftware.FireflyLuciferin
-# flatpak enter org.dpsoftware.FireflyLuciferin ls -la
+# flatpak enter org.dpsoftware.FireflyLuciferin /bin/sh
 # other manifest: https://github.com/search?q=org%3Aflathub+gstreamer&type=code
 
 if [ -z "$1" ]; then
