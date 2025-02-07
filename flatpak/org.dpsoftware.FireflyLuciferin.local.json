@@ -10,7 +10,9 @@
     "--socket=pulseaudio",
     "--socket=x11",
     "--device=all",
-    "--talk-name=org.kde.StatusNotifierWatcher"
+    "--talk-name=org.kde.StatusNotifierWatcher",
+    "--talk-name=org.gnome.SettingsDaemon.Color",
+    "--talk-name=org.kde.KWin.NightLight"
   ],
   "modules": [
     "shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json",
