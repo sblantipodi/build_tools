@@ -38,7 +38,9 @@ jpackage -i target --main-class org.dpsoftware.JavaFXStarter \
 --vendor DPsoftware --app-version "$app_version" \
 --java-options "-XX:+UseZGC -XX:+UseStringDeduplication -Xms64m -Xmx1024m \
 --add-modules=jdk.incubator.vector --enable-native-access=org.dpsoftware \
---enable-native-access=ALL-UNNAMED";
+--enable-native-access=ALL-UNNAMED --enable-native-access=com.sun.jna \
+--enable-native-access=javafx.graphics --enable-native-access=javafx.web \
+--enable-native-access=com.fazecast.jSerialComm";
 
 cd build_tools/snapcraft || exit;
 cp ../../*.deb ./FireflyLuciferinLinux.deb;
