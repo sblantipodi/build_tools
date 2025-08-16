@@ -7,6 +7,7 @@
 # flatpak run org.dpsoftware.FireflyLuciferin
 # flatpak remove org.dpsoftware.FireflyLuciferin
 # flatpak enter org.dpsoftware.FireflyLuciferin /bin/sh
+# flatpak run --command=flatpak-builder-lint org.flatpak.Builder appstream org.dpsoftware.FireflyLuciferin.appdata.xml
 # other manifest: https://github.com/search?q=org%3Aflathub+gstreamer&type=code
 
 if [ -z "$1" ]; then
