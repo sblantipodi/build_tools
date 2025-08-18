@@ -22,3 +22,8 @@ locally.
 Snapcraft folder contains a build.sh script that is able to mvn clean, package, and jpackage, and build the snap
 locally.
 
+# How to trigger a Release
+
+release.sh is the script I use to trigger a full release on GitHub and on the Flathub and Snap store.  
+just run ./release.sh and follow the instructions.  
+Users will automatically get a notification for the update.
