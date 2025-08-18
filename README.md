@@ -11,17 +11,21 @@ wix extension add -g WixToolset.Util.wixext/6.0.0;
 wix extension add -g WixToolset.Ui.wixext/6.0.0;
 ```
 wix folder contains the `main.wxs` custom file to create a custom checkbox to launch the app after the installation.  
-to use that file you need to add this param to jpackage: `--resource-dir build_tools/wix`
+to use that file you need to add this param to jpackage: `--resource-dir build_tools/wix`  
+[Originl source from jpackage](https://github.com/openjdk/jdk21u-dev/blob/master/src/jdk.jpackage/windows/classes/jdk/jpackage/internal/resources/main.wxs
+) before Luciferin customization.
 
 ### Flatpak
 
 Flatak folder contains a build.sh script that is able to mvn clean, package, and jpackage, and build the flatpak
-locally.
+locally.  
+You can find [Luciferin on Flathub here](https://flathub.org/apps/org.dpsoftware.FireflyLuciferin).
 
 ### Snapcraft
 
 Snapcraft folder contains a build.sh script that is able to mvn clean, package, and jpackage, and build the snap
-locally.
+locally.  
+You can find [Luciferin on Snap Store here](https://snapcraft.io/fireflyluciferin).
 
 ### How to trigger a Release
 release.sh is the script I use to trigger a full release on GitHub and on the Flathub and Snap store.  

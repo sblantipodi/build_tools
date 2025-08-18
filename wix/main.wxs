@@ -148,6 +148,13 @@
       <?endif?>
       <RemoveExistingProducts Before="CostInitialize"/>
       <Custom Action="JpFindRelatedProducts" After="FindRelatedProducts"/>
+
+      <!-- This is to launch the app in /passive mode -->
+      <Custom Action="LaunchApplication" After="InstallFinalize">
+        (UILevel = 2 OR UILevel = 3) AND NOT Installed
+      </Custom>
+      <!-- /passive mode finish -->
+
     </InstallExecuteSequence>
 
     <InstallUISequence>
