@@ -60,7 +60,7 @@ fi
 sudo snap remove fireflyluciferin;
 rm -rf *.snap;
 #snapcraft --verbosity=debug;
-snapcraft;
+snapcraft pack;
 sudo snap install fireflyluciferin_${app_version}_amd64.snap --dangerous;
 rm -rf /home/sblantipodi/.openjfx;
 snap run fireflyluciferin;
