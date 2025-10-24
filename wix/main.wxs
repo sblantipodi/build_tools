@@ -72,12 +72,15 @@
 
     <!-- Standard required root -->
     <Directory Id="TARGETDIR" Name="SourceDir"/>
+    <Directory Id="ProgramMenuFolder">
+      <Directory Id="AppProgramMenuDir" Name="Entertainment">
+      </Directory>
+    </Directory>
 
     <Feature Id="DefaultFeature" Title="!(loc.MainFeatureTitle)" Level="1">
       <ComponentGroupRef Id="Shortcuts"/>
       <ComponentGroupRef Id="Files"/>
       <ComponentGroupRef Id="FileAssociations"/>
-
     </Feature>
 
     <CustomAction Id="JpSetARPINSTALLLOCATION" Property="ARPINSTALLLOCATION" Value="[INSTALLDIR]" />
