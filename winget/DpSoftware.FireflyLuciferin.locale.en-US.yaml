@@ -2,7 +2,7 @@
 # yaml-language-server: $schema=https://aka.ms/winget-manifest.defaultLocale.1.10.0.schema.json
 
 PackageIdentifier: DpSoftware.FireflyLuciferin
-PackageVersion: 2.25.6
+PackageVersion: 1.0.0
 PackageLocale: en-US
 Publisher: DPsoftware
 PublisherUrl: https://github.com/sblantipodi
@@ -22,7 +22,7 @@ Tags:
   - esp8266
   - sk6812
   - ws2812b
-ReleaseNotesUrl: https://github.com/sblantipodi/firefly_luciferin/releases/tag/v2.25.6
+ReleaseNotesUrl: https://github.com/sblantipodi/firefly_luciferin/releases/tag/v1.0.0
 Documentations:
   - DocumentLabel: Wiki
     DocumentUrl: https://github.com/sblantipodi/firefly_luciferin/wiki
