@@ -27,7 +27,17 @@ Snapcraft folder contains a build.sh script that is able to mvn clean, package, 
 locally.  
 You can find [Luciferin on Snap Store here](https://snapcraft.io/fireflyluciferin).
 
+### Windows Package Manager
+
+You can find Firefly Luciferin file on
+the [Microsoft repo here](https://github.com/microsoft/winget-pkgs/tree/master/manifests/d/DpSoftware/FireflyLuciferin).  
+This allow you to install Firefly Luciferin with this command
+> winget install luciferin
+
 ### How to trigger a Release
-release.sh is the script I use to trigger a full release on GitHub and on the Flathub and Snap store.  
-just run ./release.sh and follow the instructions.  
-Users will automatically get a notification for the update.
+
+release.sh is the script used to trigger a full release on GitHub.
+Simply run ./release.sh and follow the instructions.
+
+The script creates a new tag, which in turn triggers the CI/CD pipeline on GitHub. The pipeline builds the software,
+runs tests, and publishes the release to GitHub, Snap Store, Flathub, and Windows Package Manager.
