@@ -4,5 +4,6 @@ flatpak/.flatpak-builder
 flatpak/builddir
 flatpak/repo
 flatpak/FireflyLuciferinLinux.deb
+flatpak/FireflyLuciferin.flatpak
 snapcraft/*.snap
 snapcraft/*.deb
