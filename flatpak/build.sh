@@ -7,6 +7,7 @@
 # flatpak run org.dpsoftware.FireflyLuciferin
 # flatpak remove org.dpsoftware.FireflyLuciferin
 # flatpak enter org.dpsoftware.FireflyLuciferin /bin/sh
+# flatpak override --user --env=LUCIFERIN_LOG_LEVEL=DEBUG org.dpsoftware.FireflyLuciferin
 # flatpak run --command=flatpak-builder-lint org.flatpak.Builder appstream org.dpsoftware.FireflyLuciferin.appdata.xml
 # other manifest: https://github.com/search?q=org%3Aflathub+gstreamer&type=code
 
