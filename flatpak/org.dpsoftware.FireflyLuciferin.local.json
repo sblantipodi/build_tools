@@ -31,8 +31,8 @@
           "only-arches": [
             "x86_64"
           ],
-          "url": "https://developer.download.nvidia.com/compute/cuda/redist/cuda_nvrtc/linux-x86_64/cuda_nvrtc-linux-x86_64-12.6.85-archive.tar.xz",
-          "sha256": "a4289ba86f0deeccf4e1d94c58559eae4c8184fcb6eaade8fcab45584e6cf402"
+          "url": "https://developer.download.nvidia.com/compute/cuda/redist/cuda_nvrtc/linux-x86_64/cuda_nvrtc-linux-x86_64-13.3.33-archive.tar.xz",
+          "sha256": "9e8f78278215babd1236b137252424ca7912c185bd093201f5d97f7dd763b74a"
         }
       ]
     },
