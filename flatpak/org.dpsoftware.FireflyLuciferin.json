@@ -54,8 +54,21 @@
       "sources": [
         {
           "type": "file",
+          "only-arches": [
+            "x86_64"
+          ],
           "url": "https://github.com/sblantipodi/firefly_luciferin/releases/download/v2.17.10/FireflyLuciferinLinux.deb",
-          "sha256": "b5bcb3c69806a9c8ea9174234436bb2c54b55efe816d4f2eb62f01e57112b2de"
+          "sha256": "CHANGE_ME_WITH_X86_SHA256",
+          "dest-filename": "FireflyLuciferinLinux.deb"
+        },
+        {
+          "type": "file",
+          "only-arches": [
+            "aarch64"
+          ],
+          "url": "https://github.com/sblantipodi/firefly_luciferin/releases/download/v2.17.10/FireflyLuciferinLinux_arm64.deb",
+          "sha256": "CHANGE_ME_WITH_ARM64_SHA256",
+          "dest-filename": "FireflyLuciferinLinux.deb"
         }
       ]
     }
