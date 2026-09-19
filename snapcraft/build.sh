@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright © 2020 - 2024  Davide Perini  (https://github.com/sblantipodi)
+# Copyright © 2020 - 2026  Davide Perini  (https://github.com/sblantipodi)
 # If you pass an argument version it uses it without prompting for it. (ex ./built.sh 2.17.10)
 # Firewall rules for snapcraft
 # sudo ufw allow in on lxdbr0

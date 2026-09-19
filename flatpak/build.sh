@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Copyright © 2020 - 2024  Davide Perini  (https://github.com/sblantipodi)
+# Copyright © 2020 - 2026  Davide Perini  (https://github.com/sblantipodi)
 # If you pass an argument version it uses it without prompting for it. (ex ./built.sh 2.17.10)
 # This install a new build locally.
 # flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
