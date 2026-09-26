@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Copyright © 2020 - 2026  Davide Perini  (https://github.com/sblantipodi)
-# If you pass an argument version it uses it without prompting for it. (ex ./jpackage_linux_build.sh 2.17.10)
+# If you pass an argument version it uses it without prompting for it. (ex ./jpackage_windows_build.sh 2.17.10)
 # This runs the build up to jpackage (stops after jpackage).
 
 if [ -z "$1" ]; then
