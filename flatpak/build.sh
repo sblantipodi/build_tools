@@ -17,6 +17,8 @@ else
   app_version=$1
 fi
 
+read -r -p "Produce a .flatpak file? [y/N]: " produce_flatpak
+
 cd ..;
 cd ..;
 mvn clean;
@@ -50,8 +52,14 @@ rm -rf ../../firef*.deb;
 mv org.dpsoftware.FireflyLuciferin.json org.dpsoftware.FireflyLuciferin.remote.json;
 mv org.dpsoftware.FireflyLuciferin.local.json org.dpsoftware.FireflyLuciferin.json;
 flatpak-builder --force-clean --user --install-deps-from=flathub --repo=repo --install builddir org.dpsoftware.FireflyLuciferin.json;
-flatpak build-export repo builddir
-flatpak build-bundle repo FireflyLuciferin.flatpak org.dpsoftware.FireflyLuciferin
+
+case "$produce_flatpak" in
+  [yY]*)
+    flatpak build-export repo builddir
+    flatpak build-bundle repo FireflyLuciferin.flatpak org.dpsoftware.FireflyLuciferin
+    ;;
+esac
+
 mv org.dpsoftware.FireflyLuciferin.json org.dpsoftware.FireflyLuciferin.local.json;
 mv org.dpsoftware.FireflyLuciferin.remote.json org.dpsoftware.FireflyLuciferin.json;
 rm -rf FireflyLuciferinLinux.deb;
