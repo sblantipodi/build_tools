@@ -36,7 +36,7 @@ jpackage -i target --main-class org.dpsoftware.JavaFXStarter \
 --icon data/img/luciferin_logo.png --linux-shortcut \
 --copyright "Davide Perini" --name FireflyLuciferin \
 --vendor DPsoftware --app-version "$app_version" \
---java-options "-XX:+UseZGC -XX:+UseStringDeduplication -Xms64m -Xmx1024m \
+--java-options "-XX:+UseG1GC -XX:+UseStringDeduplication -Xms64m -Xmx1024m \
 --add-modules=jdk.incubator.vector --enable-native-access=org.dpsoftware \
 --enable-native-access=ALL-UNNAMED --enable-native-access=com.sun.jna \
 --enable-native-access=javafx.graphics --enable-native-access=javafx.web \
