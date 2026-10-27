@@ -6,10 +6,16 @@ Java 21 (and later) needs a third party build tool to create native binaries and
 Wix is now installed using CI/CD pipeline with the following commands:
 
 ```
-dotnet tool install --global wix --version 6;
-wix extension add -g WixToolset.Util.wixext/6.0.0;
-wix extension add -g WixToolset.Ui.wixext/6.0.0;
+dotnet tool install --global wix --version 7.0.1;
+wix eula accept wix7;
+wix extension add -g WixToolset.Util.wixext/7.0.1;
+wix extension add -g WixToolset.UI.wixext/7.0.1;
 ```
+
+WiX 7 requires explicit acceptance of the [OSMF EULA](https://docs.firegiant.com/wix/osmf/) before building. The tool
+and extensions are pinned to the same version.
+For an existing installation, replace the first command with `dotnet tool update --global wix --version 7.0.1`.
+
 wix folder contains the `main.wxs` custom file to create a custom checkbox to launch the app after the installation.  
 to use that file you need to add this param to jpackage: `--resource-dir build_tools/wix`  
 [Originl source from jpackage](https://github.com/openjdk/jdk21u-dev/blob/master/src/jdk.jpackage/windows/classes/jdk/jpackage/internal/resources/main.wxs
